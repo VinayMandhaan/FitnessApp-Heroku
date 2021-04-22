@@ -15,6 +15,26 @@ const checkObjectId = require("../middleware/checkobjectId");
 
 const WeekExcersizeController = require("../controllers/weekExcersizeController");
 
+
+
+
+//updateplan from admin
+
+router.post("/planupdate",[auth,
+
+  check("week_excersize_id", "week_excersize_id is required").not().isEmpty(),
+  check("week", "week is required").not().isEmpty(),
+  check("day", "day is required").not().isEmpty(),
+  check("status", "status is required").not().isEmpty(),], 
+  WeekExcersizeController.UPDATE_PLAN);
+
+
+
+
+
+
+
+
 // update excersize status
 // @access   Private
 router.post("/status",
@@ -25,6 +45,9 @@ router.post("/status",
   ],
   WeekExcersizeController.UPDATE_USER_EXCERSIZE_STATUS
 );
+
+
+
 // update mark week_excersize status
 // @access   Private
 router.post("/complete",
@@ -46,6 +69,10 @@ router.get(
   [auth,admin],
   WeekExcersizeController.GET_BASIC_PLAN
 );
+
+//updateBasicPlan
+
+
 
 // @route Post api/weekexcersizes/me
 // @desc to get user bid
