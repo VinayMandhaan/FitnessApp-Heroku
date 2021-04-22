@@ -2,12 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Notification = require('../models/notifications.model');
 const { check, validationResult } = require('express-validator');
-const axios = require('axios')
-const FCM = require('fcm-node')
-const config = require('config')
 const auth  = require('../middleware/authMiddleware')
 const admin  = require('../middleware/adminMiddleware');
-const Session = require('../models/session.model');
 const checkObjectId = require('../middleware/checkobjectId');
 const {SendPushNotification}  = require('../utils/Notification')
 

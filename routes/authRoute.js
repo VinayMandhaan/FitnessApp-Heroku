@@ -1,19 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt')
 const { check, validationResult } = require('express-validator')
 const moment = require("moment");
-const _ = require('lodash')
 
 const { baseUrl } = require('../utils/url');
 //middleware
 const auth = require('../middleware/authMiddleware')
-const User = require('../models/User.model')
-//models
-const Token = require('../models/Token.model')
-const Session = require('../models/session.model')
-//services
-const { sendEmail } = require('../service/email')
 const Controller = require('../controllers/authController')
 
 moment().format();
